@@ -16,7 +16,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class main {
+public class main extends JFrame{
 	/*全域變數*/
 	private static HashMap<String, String> Character;
 	/*主程式*/
@@ -38,10 +38,11 @@ public class main {
 			String domaincode = lineBreaker.next();
 			String outprint = lineBreaker.next();
 			String check="";
-			if(!Character.isEmpty())
+			if(Character.isEmpty())
 			{
 				check = Character.get(domaincode);
-				if(check.equals("null"))
+				System.out.println(check);
+				if(!"".equals(check))
 					Character.put(domaincode, outprint);
 			}
 
@@ -52,8 +53,8 @@ public class main {
 		//關閉已讀取編碼的文件
 		scfile.close();
 		
-		//main frame = new main();
-		//frame.setVisible( true );//開啟視窗
+		main frame = new main();
+		frame.setVisible( true );//開啟視窗
 		
 		
 		while(a>=0||sc.hasNextInt()){//主程式迴圈
@@ -82,22 +83,22 @@ public class main {
 		}
 	}
 	
-//	main(){/*開始開啟視窗*/
-//        setSize(1024, 768);
-//        setDefaultCloseOperation(EXIT_ON_CLOSE);
-//        
-//        // set the menubar
-//        JMenuBar bar = new JMenuBar();
-//        setJMenuBar(bar);
-// 
-//        // set a menu.
-//        JMenu menuFile = new JMenu("檔案");
-//        bar.add(menuFile);
-// 
-//        // add sub menus.
-//        menuFile.add(new JMenuItem("檔案開啟"));
-//        menuFile.add(new JMenuItem("檔案關閉"));
-//	}
+	main(){/*開始開啟視窗*/
+        setSize(1024, 768);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+        // set the menubar
+        JMenuBar bar = new JMenuBar();
+        setJMenuBar(bar);
+ 
+        // set a menu.
+        JMenu menuFile = new JMenu("檔案");
+        bar.add(menuFile);
+ 
+        // add sub menus.
+        menuFile.add(new JMenuItem("檔案開啟"));
+        menuFile.add(new JMenuItem("檔案關閉"));
+	}
 	
 	static void bijiao(){
 		System.out.print(
